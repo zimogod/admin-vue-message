@@ -8,6 +8,11 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Home',
     component: () => import('../Home.vue')
+  },
+  {
+    path: '/page2',
+    name: 'page2',
+    component: () => import('../client/page/page2.vue')
   }
 ]
 
