@@ -5,11 +5,11 @@
     <!-- 插槽传递 -->
     <!-- <slot :list="list"></slot> -->
 
-    <el-button type="text" @click="dialogVisible = true">选择管理人员</el-button>
+    <el-button type="danger" @click="dialogVisible = true">选择管理人员</el-button>
     <el-dialog title="请选择" :visible.sync="dialogVisible" width="50%">
-      <div>
+      <div style="textAlign:center;">
         <el-checkbox-group v-model="checkedNames">
-          <el-checkbox v-for="item in adminUser" :key="item" :label="item"></el-checkbox>
+          <el-checkbox :border="true" v-for="item in adminUser" :key="item" :label="item"></el-checkbox>
         </el-checkbox-group>
       </div>
       <span slot="footer" class="dialog-footer">
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     sendData() {
-      this.$emit("send", this.checkedNames);
+      this.$bus.$emit("send", this.checkedNames);
       this.dialogVisible = false;
     },
   },
